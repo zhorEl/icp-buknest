@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations for floating elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-1px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(-3px) rotate(-0.5deg);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1.5px) rotate(0.3deg);
+  }
+  50% {
+    transform: translateY(-2.5px) rotate(-0.3deg);
+  }
+  75% {
+    transform: translateY(-1px) rotate(0.2deg);
+  }
+}
+
+@keyframes subtleBounce {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-1px) scale(1.01);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 15s ease-in-out infinite;
+}
+
+.animate-subtle-bounce {
+  animation: subtleBounce 10s ease-in-out infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 8s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Enhanced backdrop blur effects */
+.backdrop-blur-sm {
+  backdrop-filter: blur(12px);
+}
+
+/* Additional size classes for pattern elements */
+.w-54 { width: 13.5rem; }
+.h-54 { height: 13.5rem; }
+.w-60 { width: 15rem; }
+.h-60 { height: 15rem; }
+.w-66 { width: 16.5rem; }
+.h-66 { height: 16.5rem; }
+.w-72 { width: 18rem; }
+.h-72 { height: 18rem; }
+.w-84 { width: 21rem; }
+.h-84 { height: 21rem; }
+.w-96 { width: 24rem; }
+.h-96 { height: 24rem; }
+.w-108 { width: 27rem; }
+.h-108 { height: 27rem; }
+.w-120 { width: 30rem; }
+.h-120 { height: 30rem; }
+.w-132 { width: 33rem; }
+.h-132 { height: 33rem; }
+.w-144 { width: 36rem; }
+.h-144 { height: 36rem; }
+.w-156 { width: 39rem; }
+.h-156 { height: 39rem; }
+.w-168 { width: 42rem; }
+.h-168 { height: 42rem; }
+.w-180 { width: 45rem; }
+.h-180 { height: 45rem; }
+
+/* Enhanced backdrop blur effects */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: transform, opacity, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
