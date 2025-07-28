@@ -1,7 +1,7 @@
 # BukNEST - Safe, Smart, Supportive
 
-![BukNEST Logo](src/public/icon.svg)
-![BukNEST Logo](src/public/logo-name.svg)
+![BukNEST Logo](src/frontend/public/icon.svg)
+![BukNEST Logo](src/frontend/public/logo-name.svg)
 
 **A comprehensive platform connecting families with certified professionals for children with special needs through AI-powered guidance and compassionate care.**
 
@@ -16,6 +16,14 @@ BukNEST is a revolutionary platform designed to bridge the gap between families 
 - **Safe**: Verified professionals and secure platform
 - **Smart**: AI-powered initial assessments and recommendations
 - **Supportive**: Compassionate community and ongoing guidance
+
+---
+
+## Presentation Link
+
+[Pitch Deck](https://www.canva.com/design/DAGuE4YOuVw/OuLQDkOtTg49kh8SlpzV0g/view?utm_content=DAGuE4YOuVw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he44a00f556)
+
+[PROJECT SUMMARY, OVERVIEW, SCREENSHOT](https://drive.google.com/file/d/1uCFGX5E4iareQ3XtGiv_cMIYuZM88tOC/view?usp=sharing)
 
 ---
 
@@ -262,16 +270,23 @@ BukNEST is a revolutionary platform designed to bridge the gap between families 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/buknest.git
+git clone https://github.com/zhorEl/icp-buknest.git
 
 # Navigate to project directory
-cd buknest
+cd src/frontend
 
 # Install dependencies
 npm install
 
 # Start development server
 npm run dev
+
+# Build Frontend
+npm run build
+
+# Go back to root
+cd ../..
+dfx deploy
 ```
 
 ### **Environment Setup**
@@ -450,7 +465,7 @@ Session Execution → Progress Documentation
 - **Help Center**: Comprehensive FAQ and guides
 - **Live Chat**: Real-time support during business hours
 - **Email Support**: support@buknest.com
-- **Phone Support**: +63 (02) 8123-4567
+- **Phone Support**: +63 9913410186
 
 ### **Professional Support**
 
