@@ -1,13 +1,9 @@
 {
     "canisters": {
-        // "icp_simple_site": {
-        //     "frontend": {
-        //         "entrypoint": "src/index.html"
-        //     },
-        //     "source": ["src"],
-        //     "type": "assets"
-        // }
-        
+        "frontend": {
+            "type": "assets",
+            "source": ["src/frontend/dist/"]
+        }
     },
     "dfx": "0.22.0",
     "version": 1,
