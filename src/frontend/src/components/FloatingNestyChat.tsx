@@ -170,8 +170,8 @@ export default function FloatingNestyChat() {
                 <div className="flex-1 p-4 space-y-4 overflow-y-auto bg-gradient-to-br from-pink-50 via-rose-50 to-green-50">
                   {/* NESTY Introduction */}
                   <div className="flex flex-col items-center py-6 border-b border-pink-200">
-                    <div className="flex items-center justify-center w-20 h-20 mb-4 border-4 border-white rounded-full shadow-lg bg-gradient-to-br from-pink-200 to-green-200">
-                      <img src="/NESTY.svg" alt="NESTY" className="w-12 h-12" />
+                    <div className="relative mb-4 overflow-hidden border-4 border-white rounded-full shadow-lg w-28 h-28 bg-gradient-to-br from-pink-200 to-green-200">
+                      <img src="/NESTY.svg" alt="NESTY" className="object-cover w-full h-full" />
                     </div>
                     <h3 className="mb-2 text-xl font-bold text-gray-800 font-handwritten">NESTY</h3>
                     <p className="font-sans text-sm text-center text-gray-600">
@@ -200,7 +200,7 @@ export default function FloatingNestyChat() {
                           {message.type === 'user' ? (
                             <span className="text-xs font-bold text-white">U</span>
                           ) : (
-                            <img src="/NESTY.svg" alt="NESTY" className="w-4 h-4" />
+                            <img src="/NESTY.svg" alt="NESTY" className="object-cover w-full h-full" />
                           )}
                         </div>
                         <div className={`px-4 py-3 rounded-2xl shadow-md backdrop-blur-sm ${
@@ -217,8 +217,8 @@ export default function FloatingNestyChat() {
                   {isTyping && (
                     <div className="flex justify-start">
                       <div className="flex items-start space-x-3">
-                        <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 bg-gray-200 border-2 border-white rounded-full shadow-md">
-                          <img src="/NESTY.svg" alt="NESTY" className="w-4 h-4" />
+                        <div className="flex-shrink-0 w-8 h-8 overflow-hidden bg-gray-200 border-2 border-white rounded-full shadow-md">
+                          <img src="/NESTY.svg" alt="NESTY" className="object-cover w-full h-full" />
                         </div>
                         <div className="px-4 py-3 bg-white border-2 border-gray-200 shadow-sm rounded-2xl">
                           <div className="flex space-x-1">

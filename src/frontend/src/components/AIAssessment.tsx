@@ -1,4 +1,4 @@
- React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, ArrowRight, Calendar, Users } from 'lucide-react';
 import { ChatMessage } from '../types';
 
@@ -183,10 +183,10 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
               </div>
             </div>
             
-                 {/* NESTY Introduction */}
+            {/* NESTY Introduction */}
             <div className="relative z-10 flex flex-col items-center py-8 border-b border-pink-200">
-              <div className="flex items-center justify-center w-24 h-24 mb-6 border-4 border-white rounded-full shadow-xl bg-gradient-to-br from-pink-200 to-green-200">
-                <img src="/NESTY.svg" alt="NESTY" className="h-14 w-14" />
+              <div className="relative w-32 h-32 mb-6 overflow-hidden border-4 border-white rounded-full shadow-xl bg-gradient-to-br from-pink-200 to-green-200">
+                <img src="/NESTY.svg" alt="NESTY" className="object-cover w-full h-full" />
               </div>
               <h3 className="mb-3 text-2xl font-bold text-gray-800 font-handwritten">NESTY</h3>
               <p className="max-w-md font-sans text-center text-gray-600">
@@ -215,7 +215,7 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
                     {message.type === 'user' ? (
                       <User className="w-5 h-5 text-white" />
                     ) : (
-                     <img src="/NESTY.svg" alt="NESTY" className="w-6 h-6" />
+                     <img src="/NESTY.svg" alt="NESTY" className="object-cover w-full h-full" />
                     )}
                   </div>
                   <div className={`px-5 py-4 rounded-2xl shadow-lg backdrop-blur-sm ${
@@ -232,8 +232,8 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
             {isTyping && (
               <div className="flex justify-start">
                 <div className="flex items-start space-x-4">
-                 <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full shadow-md bg-gradient-to-r from-pink-200 to-green-200">
-                   <img src="/NESTY.svg" alt="NESTY" className="w-6 h-6" />
+                 <div className="flex-shrink-0 w-12 h-12 overflow-hidden rounded-full shadow-md bg-gradient-to-r from-pink-200 to-green-200">
+                   <img src="/NESTY.svg" alt="NESTY" className="object-cover w-full h-full" />
                   </div>
                   <div className="px-5 py-4 bg-white border-2 border-gray-200 shadow-sm rounded-2xl">
                     <div className="flex space-x-1">
