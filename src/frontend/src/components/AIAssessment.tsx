@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+ React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, ArrowRight, Calendar, Users } from 'lucide-react';
 import { ChatMessage } from '../types';
 
@@ -110,12 +110,12 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
       {/* NESTY Header */}
       <div className="bg-gradient-to-r from-[#d698ab] via-[#CB748E] to-[#698a60] text-white py-12 relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -translate-x-16 -translate-y-16"></div>
-        <div className="absolute top-4 right-0 w-24 h-24 bg-white bg-opacity-10 rounded-full translate-x-12"></div>
-        <div className="absolute bottom-0 right-1/4 w-20 h-20 bg-white bg-opacity-10 rounded-full translate-y-10"></div>
+        <div className="absolute top-0 left-0 w-32 h-32 -translate-x-16 -translate-y-16 bg-white rounded-full bg-opacity-10"></div>
+        <div className="absolute right-0 w-24 h-24 translate-x-12 bg-white rounded-full top-4 bg-opacity-10"></div>
+        <div className="absolute bottom-0 w-20 h-20 translate-y-10 bg-white rounded-full right-1/4 bg-opacity-10"></div>
         
         {/* Floating Pattern Elements */}
-        <div className="absolute top-12 left-20 opacity-25 animate-float-slow" style={{ transform: 'translateX(-26.4rem)', animationDelay: '3s' }}>
+        <div className="absolute opacity-25 top-12 left-20 animate-float-slow" style={{ transform: 'translateX(-26.4rem)', animationDelay: '3s' }}>
           <img src="/pattern/pattern light pink with green.svg" alt="" className="w-132 h-132" />
         </div>
         <div className="absolute top-20 right-16 opacity-22 animate-float-gentle" style={{ animationDelay: '8s', transform: 'translateX(24rem)' }}>
@@ -128,23 +128,23 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
           <img src="/pattern/pattern dark green.svg" alt="" className="w-96 h-96" />
         </div>
         
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-          <div className="flex justify-center items-center mb-4">
-            <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-4 mr-4">
-              <img src="/NESTY.svg" alt="NESTY" className="h-12 w-12" />
+        <div className="relative max-w-4xl px-4 mx-auto text-center sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center mb-4">
+            <div className="p-4 mr-4 bg-white rounded-full bg-opacity-20 backdrop-blur-sm">
+              <img src="/NESTY.svg" alt="NESTY" className="w-12 h-12" />
             </div>
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-handwritten">
+              <h1 className="text-4xl font-bold md:text-5xl font-handwritten">
                 <span className="text-white">Chat with </span><span className="text-yellow-300">NESTY!</span>
               </h1>
             </div>
           </div>
           
           <div className="max-w-3xl mx-auto">
-            <p className="text-xl text-white text-opacity-95 mb-4" style={{ fontFamily: 'Calibri, sans-serif' }}>
+            <p className="mb-4 text-xl text-white text-opacity-95" style={{ fontFamily: 'Calibri, sans-serif' }}>
               Your safe space for early developmental assessment
             </p>
-            <p className="text-lg text-white text-opacity-90 leading-relaxed" style={{ fontFamily: 'Calibri, sans-serif' }}>
+            <p className="text-lg leading-relaxed text-white text-opacity-90" style={{ fontFamily: 'Calibri, sans-serif' }}>
               Share your concerns in a judgment-free environment. NESTY will guide you through gentle questions 
               to help identify early signs and provide personalized recommendations for your child's development.
             </p>
@@ -152,8 +152,8 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden border border-white border-opacity-50 relative">
+      <div className="max-w-4xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden bg-white border border-white border-opacity-50 shadow-xl bg-opacity-90 backdrop-blur-sm rounded-3xl">
           {/* Chat Container Floating Elements */}
           <div className="absolute -top-4 -right-4 opacity-22 animate-float-slow" style={{ transform: 'translateX(19.2rem)', animationDelay: '5s' }}>
             <img src="/pattern/pattern pink.svg" alt="" className="w-96 h-96" />
@@ -183,6 +183,24 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
               </div>
             </div>
             
+                 {/* NESTY Introduction */}
+            <div className="relative z-10 flex flex-col items-center py-8 border-b border-pink-200">
+              <div className="flex items-center justify-center w-24 h-24 mb-6 border-4 border-white rounded-full shadow-xl bg-gradient-to-br from-pink-200 to-green-200">
+                <img src="/NESTY.svg" alt="NESTY" className="h-14 w-14" />
+              </div>
+              <h3 className="mb-3 text-2xl font-bold text-gray-800 font-handwritten">NESTY</h3>
+              <p className="max-w-md font-sans text-center text-gray-600">
+                We're here to support you and your child's developmental journey.
+              </p>
+            </div>
+            
+            {/* Today Divider */}
+            <div className="relative z-10 text-center">
+              <span className="px-4 py-2 font-sans text-sm font-semibold text-gray-600 bg-gray-200 rounded-full">
+                Today
+              </span>
+            </div>
+            
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -195,9 +213,9 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
                     message.type === 'user' ? 'bg-blue-600' : 'bg-gray-200'
                   }`}>
                     {message.type === 'user' ? (
-                      <User className="h-5 w-5 text-white" />
+                      <User className="w-5 h-5 text-white" />
                     ) : (
-                     <img src="/NESTY.svg" alt="NESTY" className="h-6 w-6" />
+                     <img src="/NESTY.svg" alt="NESTY" className="w-6 h-6" />
                     )}
                   </div>
                   <div className={`px-5 py-4 rounded-2xl shadow-lg backdrop-blur-sm ${
@@ -214,10 +232,10 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
             {isTyping && (
               <div className="flex justify-start">
                 <div className="flex items-start space-x-4">
-                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-pink-200 to-green-200 flex items-center justify-center shadow-md">
-                   <img src="/NESTY.svg" alt="NESTY" className="h-6 w-6" />
+                 <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full shadow-md bg-gradient-to-r from-pink-200 to-green-200">
+                   <img src="/NESTY.svg" alt="NESTY" className="w-6 h-6" />
                   </div>
-                  <div className="px-5 py-4 rounded-2xl bg-white border-2 border-gray-200 shadow-sm">
+                  <div className="px-5 py-4 bg-white border-2 border-gray-200 shadow-sm rounded-2xl">
                     <div className="flex space-x-1">
                       <div className="w-3 h-3 bg-green-400 rounded-full animate-bounce"></div>
                       <div className="w-3 h-3 bg-green-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -233,14 +251,14 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
           {/* Assessment Results */}
           {assessmentComplete && assessmentResults && (
             <div className="border-t border-pink-200 p-6 bg-gradient-to-r from-pink-50 to-green-50 max-h-[35vh] overflow-y-auto scroll-smooth">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Assessment Summary</h3>
+              <h3 className="mb-4 text-lg font-semibold text-gray-900">Assessment Summary</h3>
               
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Key Concerns Identified:</h4>
+                  <h4 className="mb-2 font-medium text-gray-900">Key Concerns Identified:</h4>
                   <ul className="space-y-1">
                     {assessmentResults.concerns.map((concern: string, index: number) => (
-                      <li key={index} className="text-sm text-gray-600 flex items-center">
+                      <li key={index} className="flex items-center text-sm text-gray-600">
                         <div className="w-2 h-2 bg-gradient-to-r from-[#CB748E] to-[#698a60] rounded-full mr-2"></div>
                         {concern}
                       </li>
@@ -249,11 +267,11 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
                 </div>
                 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Recommended Professionals:</h4>
+                  <h4 className="mb-2 font-medium text-gray-900">Recommended Professionals:</h4>
                   <ul className="space-y-1">
                     {assessmentResults.suggestedProfessionals.map((professional: string, index: number) => (
-                      <li key={index} className="text-sm text-gray-600 flex items-center">
-                        <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mr-2"></div>
+                      <li key={index} className="flex items-center text-sm text-gray-600">
+                        <div className="w-2 h-2 mr-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-400"></div>
                         {professional}
                       </li>
                     ))}
@@ -261,20 +279,20 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <button
                   onClick={() => onPageChange('professionals')}
                   className="bg-gradient-to-r from-[#CB748E] to-[#698a60] text-white px-6 py-3 rounded-2xl font-semibold hover:from-pink-500 hover:to-green-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center font-handwritten"
                 >
-                  <Users className="h-5 w-5 mr-2" />
+                  <Users className="w-5 h-5 mr-2" />
                   Find Professionals
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
                 <button
                   onClick={() => onPageChange('bookings')}
-                  className="bg-white bg-opacity-80 border-2 border-pink-300 text-green-700 px-6 py-3 rounded-2xl font-semibold hover:bg-pink-50 transition-all duration-300 flex items-center justify-center font-handwritten"
+                  className="flex items-center justify-center px-6 py-3 font-semibold text-green-700 transition-all duration-300 bg-white border-2 border-pink-300 bg-opacity-80 rounded-2xl hover:bg-pink-50 font-handwritten"
                 >
-                  <Calendar className="h-5 w-5 mr-2" />
+                  <Calendar className="w-5 h-5 mr-2" />
                   Book Consultation
                 </button>
               </div>
@@ -283,19 +301,19 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
 
           {/* Input Area */}
           {!assessmentComplete && (
-            <div className="border-t border-pink-200 p-6 bg-gradient-to-r from-pink-50 to-green-50 relative">
+            <div className="relative p-6 border-t border-pink-200 bg-gradient-to-r from-pink-50 to-green-50">
               {/* Input area decorative elements */}
               <div className="absolute top-2 right-4 opacity-15 animate-gentle-pulse" style={{ animationDelay: '4s' }}>
                 <img src="/pattern/pattern pink.svg" alt="" className="w-48 h-48" />
               </div>
               
-              <div className="flex space-x-4 items-end">
+              <div className="flex items-end space-x-4">
                 <textarea
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Share your thoughts with NESTY..."
-                  className="flex-1 border-2 border-pink-300 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent resize-none bg-white bg-opacity-95 text-base font-readable shadow-lg backdrop-blur-sm"
+                  className="flex-1 px-5 py-4 text-base bg-white border-2 border-pink-300 shadow-lg resize-none rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent bg-opacity-95 font-readable backdrop-blur-sm"
                   style={{ fontFamily: 'Calibri, sans-serif' }}
                   rows={3}
                 />
@@ -304,7 +322,7 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
                   disabled={!inputMessage.trim() || isTyping}
                   className="bg-gradient-to-r from-[#CB748E] to-[#698a60] text-white px-8 py-4 rounded-2xl hover:from-pink-500 hover:to-green-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center font-handwritten shadow-xl transform hover:scale-105 border-2 border-white border-opacity-20"
                 >
-                  <Send className="h-6 w-6" />
+                  <Send className="w-6 h-6" />
                 </button>
               </div>
             </div>
@@ -312,7 +330,7 @@ export default function AIAssessment({ onPageChange }: AIAssessmentProps) {
         </div>
 
         <div className="mt-6 text-center">
-          <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl p-4 border border-white border-opacity-50 shadow-lg relative">
+          <div className="relative p-4 bg-white border border-white border-opacity-50 shadow-lg bg-opacity-80 backdrop-blur-sm rounded-2xl">
             <div className="absolute -top-2 -right-2 opacity-18 animate-float-slow" style={{ transform: 'translateX(4.8rem)', animationDelay: '11s' }}>
               <img src="/pattern/pattern dark green.svg" alt="" className="w-24 h-24" />
             </div>
