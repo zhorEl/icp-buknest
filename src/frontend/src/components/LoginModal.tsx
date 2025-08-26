@@ -65,7 +65,19 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
         createdAt: new Date().toISOString(),
         lastLogin: new Date().toISOString()
       };
-    } else {
+     } else if (isLogin) {
+      // Handle real login with Supabase
+      // This would be implemented with actual Supabase auth
+      userData = {
+        id: Date.now().toString(),
+        email: formData.email,
+        name: formData.name || formData.email.split('@')[0],
+        role: userType,
+        avatar: 'https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=400',
+        createdAt: new Date().toISOString(),
+        lastLogin: new Date().toISOString()
+      };
+    }else {
       // Regular signup/login
       userData = {
         id: Date.now().toString(),
@@ -100,24 +112,24 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
       <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b border-gray-200">
+        <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900">
             {isLogin ? 'Sign In' : 'Create Account'}
           </h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-2 transition-colors rounded-full hover:bg-gray-100"
           >
-            <X className="h-5 w-5 text-gray-500" />
+            <X className="w-5 h-5 text-gray-500" />
           </button>
         </div>
 
         <div className="p-6">
           {/* User Type Selection */}
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-3">I am a:</label>
+            <label className="block mb-3 text-sm font-medium text-gray-700">I am a:</label>
             <div className="grid grid-cols-3 gap-2">
               {[
                 { value: 'parent', label: 'Parent', icon: '👨‍👩‍👧‍👦' },
@@ -134,7 +146,7 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
                       : 'border-gray-300 hover:bg-gray-50'
                   }`}
                 >
-                  <div className="text-2xl mb-1">{type.icon}</div>
+                  <div className="mb-1 text-2xl">{type.icon}</div>
                   <div className="text-xs font-medium">{type.label}</div>
                 </button>
               ))}
@@ -142,8 +154,8 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
           </div>
 
           {/* Sample Credentials Helper */}
-          <div className="mb-4 p-3 bg-green-50 rounded-lg border border-green-200">
-            <div className="flex justify-between items-center">
+          <div className="p-3 mb-4 border border-green-200 rounded-lg bg-green-50">
+            <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-green-800">Demo Credentials</p>
                 <p className="text-xs text-green-600">
@@ -153,7 +165,7 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
               <button
                 type="button"
                 onClick={fillSampleCredentials}
-                className="px-3 py-1 bg-green-700 text-white text-xs rounded hover:bg-green-800 transition-colors"
+                className="px-3 py-1 text-xs text-white transition-colors bg-green-700 rounded hover:bg-green-800"
               >
                 Use Demo
               </button>
@@ -163,15 +175,15 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                <label className="block mb-2 text-sm font-medium text-gray-700">Full Name</label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <User className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full py-3 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your full name"
                     required
                   />
@@ -180,15 +192,15 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+              <label className="block mb-2 text-sm font-medium text-gray-700">Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <Mail className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full py-3 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Enter your email"
                   required
                 />
@@ -196,39 +208,39 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+              <label className="block mb-2 text-sm font-medium text-gray-700">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <Lock className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full py-3 pl-10 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Enter your password"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute text-gray-400 transform -translate-y-1/2 right-3 top-1/2 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
             </div>
 
             {!isLogin && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                <label className="block mb-2 text-sm font-medium text-gray-700">Confirm Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <Lock className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                   <input
                     type="password"
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full py-3 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="Confirm your password"
                     required
                   />
@@ -238,7 +250,7 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
 
             <button
               type="submit"
-              className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors"
+              className="w-full py-3 font-semibold text-white transition-colors bg-green-700 rounded-lg hover:bg-green-800"
             >
               {isLogin ? 'Sign In' : 'Create Account'}
             </button>
@@ -247,7 +259,7 @@ export default function LoginModal({ isOpen, onClose, onLogin, initialMode = 'lo
           <div className="mt-6 text-center">
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="text-green-600 hover:text-green-700 font-medium"
+              className="font-medium text-green-600 hover:text-green-700"
             >
               {isLogin ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
             </button>

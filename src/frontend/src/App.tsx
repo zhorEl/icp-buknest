@@ -1,22 +1,23 @@
 import React from 'react';
 import { useState } from 'react';
-import Header from './components/Header.tsx';
-import Footer from './components/Footer.tsx';
-import LoginModal from './components/LoginModal.tsx';
-import HomePage from './components/HomePage.tsx';
-import AIAssessment from './components/AIAssessment.tsx';
-import AboutPage from './components/AboutPage.tsx';
-import MissionPage from './components/MissionPage.tsx';
-import ProfessionalsPage from './components/ProfessionalsPage.tsx';
-import BookingsPage from './components/BookingsPage.tsx';
-import SignupPage from './components/SignupPage.tsx';
-import ParentDashboard from './components/dashboards/ParentDashboard.tsx';
-import ProfessionalDashboard from './components/dashboards/ProfessionalDashboard.tsx';
-import AdminDashboard from './components/dashboards/AdminDashboard.tsx';
-import MyServicesPage from './components/MyServicesPage.tsx';
+import { AuthProvider } from './components/AuthProvider';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import LoginModal from './components/LoginModal';
+import HomePage from './components/HomePage';
+import AIAssessment from './components/AIAssessment';
+import AboutPage from './components/AboutPage';
+import MissionPage from './components/MissionPage';
+import ProfessionalsPage from './components/ProfessionalsPage';
+import BookingsPage from './components/BookingsPage';
+import SignupPage from './components/SignupPage';
+import ParentDashboard from './components/dashboards/ParentDashboard';
+import ProfessionalDashboard from './components/dashboards/ProfessionalDashboard';
+import AdminDashboard from './components/dashboards/AdminDashboard';
+import MyServicesPage from './components/MyServicesPage';
 import MyClientsPage from './components/MyClientsPage.tsx';
-import MyProfilePage from './components/MyProfilePage.tsx';
-import KidsProfilePage from './components/KidsProfilePage.tsx';
+import MyProfilePage from './components/MyProfilePage';
+import KidsProfilePage from './components/KidsProfilePage';
 import FloatingNestyChat from './components/FloatingNestyChat';
 
 function App() {
@@ -98,25 +99,27 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header 
-        currentPage={currentPage} 
-        onPageChange={setCurrentPage}
-        user={user}
-        onLogin={handleShowLogin}
-        onSignup={handleShowSignup}
-        onLogout={handleLogout}
-      />
-      <LoginModal
-        isOpen={showLoginModal}
-        onClose={() => setShowLoginModal(false)}
-        onLogin={handleLogin}
-        initialMode={loginModalMode}
-      />
-      {renderPage()}
-      <Footer onPageChange={setCurrentPage} />
-      <FloatingNestyChat />
-    </div>
+    <AuthProvider>
+      <div className="min-h-screen bg-gray-50">
+        <Header 
+          currentPage={currentPage} 
+          onPageChange={setCurrentPage}
+          user={user}
+          onLogin={handleShowLogin}
+          onSignup={handleShowSignup}
+          onLogout={handleLogout}
+        />
+        <LoginModal
+          isOpen={showLoginModal}
+          onClose={() => setShowLoginModal(false)}
+          onLogin={handleLogin}
+          initialMode={loginModalMode}
+        />
+        {renderPage()}
+        <Footer onPageChange={setCurrentPage} />
+        <FloatingNestyChat />
+      </div>
+    </AuthProvider>
   );
 }
 
